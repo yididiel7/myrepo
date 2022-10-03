@@ -1,0 +1,97 @@
+# To demonstrate, we'll use this snippet of text
+
+Line one
+Line two
+Line three
+Line four
+
+The X command deletes the character under the coursor. When we use the
+dot command in this context, "repeat last change" tells Vim to delete the
+character under the cursor:
+
+Keystrokes Buffer Contents
+--------------------------
+{start} Line one
+        Line two
+        Line three
+        Line four
+
+x       Line one
+        Line two
+        Line three
+        Line four
+
+.       Line one
+        Line two
+        Line three
+        Line four
+
+..      Line one
+        Line two
+        Line three
+        Line four
+
+
+> Note: PAGE-#3 Meet the Dot Command Where I left off!
+
+[Book: Practical Vim, Second Edition]
+
+We can restore the file to its original state by pressing the u key a few times
+to undo the changes. The dd command also performs a deletion, but this one acts
+on the current line as a whole.
+
+If we use the dot command after dd , then “repeat last change”
+instructs Vim to delete the current line:
+
+Keystrokes Buffer Contents
+--------------------------
+{start} Line one
+        Line two
+        Line three
+        Line four
+
+dd      Line two
+        Line three
+        Line four
+
+.       Line three
+        Line four
+
+Finally, the >G command increases the indentation from the current line until
+the end of the file. If we follow this command with the dot command, then
+“repeat last change” tells Vim to increase the indentation level from the current
+position to the end of the file. In this example, we’ll start with the cursor on
+the second line to highlight the difference.
+
+Keystrokes Buffer Contents
+--------------------------
+{start} Line one
+        Line two
+        Line three
+        Line four
+
+>G      Line one
+        Line two
+        Line three
+        Line four
+
+j       Line one
+        Line two
+        Line three
+        Line four
+
+.       Line one
+        Line two
+        Line three
+        Line four
+
+j.      Line one
+        Line two
+        Line three
+        Line four
+
+The x , dd , and > commands are all executed from Normal mode, but we also
+create a change each time we dip into Insert mode. From the moment we
+enter Insert mode (by pressing i , for example) until we return to Normal mode
+(by pressing <Esc> ), Vim records every keystroke. After making a change such
+as this, the dot command will replay our keystrokes

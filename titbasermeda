@@ -1,0 +1,14 @@
+In case you don’t know what I’m talking about, 
+never mind—just copy the snippet below to Vim
+and try out the example.
+
+File name: "titbasermeda = I will recieve the word/message"
+
+Info: You’re squashing your commits, here’s the list of them:
+
+pick e08be68 Add initial Rexfile
+s 5b4143f Fixes
+s 855be75 fix
+s d7a5285 Initial work
+s 59e82a2 add more stuff
+s 34cfc9c Fixes
